@@ -18,7 +18,7 @@ class TXTtoCSV{
 		vector <Word> array;
 
 	public:
-		TXTtoCSV(const char * file_name);
+		TXTtoCSV(const char * file_name, char * output_file_name);
 		
 		void build_dict(){};
 		
