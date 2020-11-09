@@ -2,12 +2,12 @@ class TritSet{
 	private:
 		vector<AtomTrit> Set;
 	public:
-		TritSet(int size){};
+		TritSet(size_t size);
 
-		operator |(){};
-		operator &(){};
-		operator !(){};
+		operator |(const TritSet& TS);
+		operator &(const TritSet& TS);
+		operator !(const TritSet& TS);
 		
-		~TritSet(int size){};	 
+		~TritSet(){};	 
 };
 
