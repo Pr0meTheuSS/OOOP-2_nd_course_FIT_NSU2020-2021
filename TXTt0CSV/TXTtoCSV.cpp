@@ -1,16 +1,17 @@
 #include "TXTtoCSV.hpp"
 
-#ifndef TXTtoCSV_CPP
-#define TXTtoCSV_CPP
-
 using namespace std;
 using namespace TXTtoCSV;
 
 
-		TXTtoCSV(const char * file_name){
+		TXTtoCSV(const char * file_name, char * output_file_name){
 			this->input_file = fopen(file_name, "rb");
 			if(this->input_file == NULL)
 				throw "Error: can't open this file\n";	
+
+			this->output_file = fopen(output_file_name, "a");
+			if(this->output_file == NULL)
+				throw "Error: can't open this file\n";
 		};
 		
 		void build_dict(){
@@ -18,8 +19,10 @@ using namespace TXTtoCSV;
 			char tmp_char;
 
 			while(fscanf(this->input_file, "%c", &tmp_char) > 0){
+				
 				if(isalpha(int(tmp_char)))
 					str_word.append(&tmp_char, 1);
+				
 				else{
 					if(str_word != ""){
 						if(this->dict.count(str_word))
@@ -33,6 +36,7 @@ using namespace TXTtoCSV;
 		};
 				
 		void build_array(){
+			
 			map<string, unsigned int>::iterator It;
 		
 			for( It = this->dict.begin(); It != dict.end();++It)
@@ -41,14 +45,10 @@ using namespace TXTtoCSV;
 			sort(this->array.begin(), this->array.end());
 		};
 		
-		build_CSV(char * output_file_name){	
+		build_CSV(){	
 		
 			this->build_dict();
 			this->build_array();
-			this->output_file = fopen(output_file_name, "a");
-		
-			if(this->output_file == NULL)
-				throw "Error: can't open this file\n";
 		
 			for(int i = this->array.size() - 1; i >= 0; i--)
 				this->array[i].output_in_CSV(this->output_file);
@@ -57,5 +57,4 @@ using namespace TXTtoCSV;
 		~TXTtoCSV(){fclose(this->input_file); fclose(this->output_file);};
 };
 
-#endif 
 
