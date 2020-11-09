@@ -1,5 +1,8 @@
 #include "TritSet.h"
 
+
+//Необходимо вынести выравнивание трит сетов по размерности в отдельный метод ?
+
 TritSet::TritSet(CONDITION val, size_t size) {
 
 	if (val == CONDITION::Unknown) {
