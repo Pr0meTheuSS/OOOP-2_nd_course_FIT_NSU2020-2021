@@ -1,38 +1,30 @@
-#ifndef IOSTREAM
-#define IOSTREAM
-#include <iostream>
-#endif 
-#ifndef STRING
-#define STRING
-#include <string>
-#endif 
 
 #ifndef WORD_HPP
 #define WORD_HPP
+
+#include <iostream>
+#include <string>
 
 class Word{
 	
 	private:
 		std::string word;
 		unsigned int count;
-		
+	
 	public:
 		
 	
-		Word(std::string, unsigned int );
+		Word(std::string S, unsigned int C);
 	
 		std::string get_word();
 	
 		unsigned int get_count();
 	
-		void output_in_CSV(FILE * );
+		void output_in_CSV(FILE * out);
 					
-		operator <(Word );
+		operator <(const Word& W);
 	
 		~Word();
 				
 };
-
 #endif 
-
-
