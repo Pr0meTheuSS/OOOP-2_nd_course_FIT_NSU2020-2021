@@ -1,11 +1,10 @@
+#ifndef TXTTOCSV_HPP
+#define TXTTOCSV_HPP
+
 #include <iostream>
-
 #include <vector>
-
 #include <map>
-
 #include "Word.hpp"
-
 #include <algorithm>
 
 using namespace std;
@@ -19,15 +18,14 @@ class TXTtoCSV{
 		vector <Word> array;
 
 	public:
-		TXTtoCSV(const char * file_name){};
+		TXTtoCSV(const char * file_name);
 		
 		void build_dict(){};
 		
 		
-		void build_array(){	};
-		build_CSV(char * output_file_name){	};
+		void build_array();
+		build_CSV(char * output_file_name);
 		
-		~TXTtoCSV(){};
+		~TXTtoCSV();
 };
-
-
+#endif
