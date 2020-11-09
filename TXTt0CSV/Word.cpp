@@ -1,9 +1,4 @@
 #include "Word.hpp"
-
- 
-#ifndef WORD_CPP
-#define WORD_CPP
-
 	
 		Word(std::string W, unsigned int C){
 			this->word = W;
@@ -12,7 +7,7 @@
 	
 		Word::get_word(){return this->word;}
 	
-	Word::get_count(){return this->count;}
+		Word::get_count(){return this->count;}
 	
 		Word::output_in_CSV(FILE * of){
 			if(of == NULL)
@@ -24,9 +19,5 @@
 			return this->count < w_1.count;
 		};
 		
-		~Word::Word(){};
-		
+		~Word::Word(){};		
 };
-
-#endif 
-
