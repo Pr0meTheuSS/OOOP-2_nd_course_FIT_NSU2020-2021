@@ -1,0 +1,12 @@
+
+1 = replace They We
+2 = dump repl_dump.txt
+3 = grep The
+4 = dump grep_dump.txt
+6 = sort
+0 = readfile Night.txt
+5 = writefile Night_out.txt
+csed
+0->1->2->3->4->6->5
+
+##Отсутствует ключевое слово desc
